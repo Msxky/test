@@ -51,10 +51,10 @@
     const a = document.getElementById("yes");
     const b = document.getElementById("no");
     const audio = new Audio ("/WAITWAITWAIT WHAT DA HELLLLL WAAZZZAAAA (quest ah dog sound effect).mp3")
-    b.addEventListener("mouseover", moveHover);
+    b.addEventListener("click", moveHover);
     function moveHover() {
     const n = Math.floor(Math.random() * 250) + 1;
-    const m = Math.floor(Math.random() * 400) + 1;
+    const m = Math.floor(Math.random() * 300) + 1;
 
     b.style.left = n + "px";
     b.style.top = m + "px";
