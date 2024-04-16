@@ -30,11 +30,6 @@
         padding: 0.2rem 1rem;
         cursor: pointer;
       }
-      button:hover{
-        border: 2px solid yellowgreen;
-        box-shadow: 0 0 10px red;
-        scale: 1.1;
-      }
     </style>
   </head>
   <body>
@@ -58,10 +53,11 @@
     b.style.top = m + "px";
     }
     a.addEventListener("click",function(){
-      a.textContent = "Yes"
-      b.textContent = "No"
       a.style.scale="2"
       a.style.zIndex = "10"
+      a.style.border= "2px solid yellowgreen";
+      a.style.boxShadow ="0 0 10px red";
+      a.style.scale= "1.1"
       setTimeout( function(){
         audio.play()
         alert("GAY!! 😂😂😂😂")
