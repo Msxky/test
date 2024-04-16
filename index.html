@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pertanyaan</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800;900&display=swap");
+
+      * {
+        font-family: "poppins", sans-serif;
+      }
+
       body {
         background: #111111;
       }
@@ -14,6 +20,21 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+      }
+
+      form {
+        color: #ffffff;
+        background: #111111;
+        border: 2px solid #ffffff;
+        padding: 0.2rem 0.4rem;
+        font-weight: 600;
+      }
+
+      form input {
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-weight: 600;
       }
 
       h3 {
@@ -34,7 +55,17 @@
   </head>
   <body>
     <main>
-      <h3>Are You Gay?</h3>
+      <form action="">
+        <label for="nama">Nama :</label>
+        <input
+          id="nama"
+          type="text"
+          placeholder="Masukan Nama Disini"
+          required
+        />
+      </form>
+      <button id="Enter" onclick="ent()" style="margin-top: 20px">Enter</button>
+      <h3></h3>
       <div class="btn">
         <button id="yes" onclick="yes()">Yes</button>
         <button id="no" onclick="no()">No</button>
@@ -42,26 +73,56 @@
     </main>
   </body>
   <script>
+    const nama = document.getElementById("nama");
+    const enter = document.getElementById("Enter");
+    const h3 = document.querySelector("h3");
     const a = document.getElementById("yes");
     const b = document.getElementById("no");
-    const audio = new Audio ("/WAITWAITWAIT WHAT DA HELLLLL WAAZZZAAAA (quest ah dog sound effect).mp3")
+    const audio = new Audio(
+      "/WAITWAITWAIT WHAT DA HELLLLL WAAZZZAAAA (quest ah dog sound effect).mp3"
+    );
+    a.style.display = "none";
+    b.style.display = "none";
+    function ent() {
+      if (nama.value == 0) {
+        enter.textContent = "Masukin Nama";
+      } else {
+        h3.style.display = "block";
+        h3.textContent = `Hallo ${nama.value}, Are You Gay?`;
+        document.querySelector("form").style.display = "none";
+        enter.style.display = "none";
+        a.style.display = "block";
+        b.style.display = "block";
+      }
+    }
+    document.onkeydown = (e) => {
+      if (e.key == "Enter") {
+        onclick = ent();
+        return false;
+      }
+    };
     b.addEventListener("click", moveHover);
     function moveHover() {
-    const n = Math.floor(Math.random() * 250) + 1;
-    const m = Math.floor(Math.random() * 300) + 1;
-    b.style.left = n + "px";
-    b.style.top = m + "px";
+      const n = Math.floor(Math.random() * 250) + 1;
+      const m = Math.floor(Math.random() * 300) + 1;
+      b.style.left = n + "px";
+      b.style.top = m + "px";
     }
-    a.addEventListener("click",function(){
-      a.style.scale="2"
-      a.style.zIndex = "10"
-      a.style.border= "2px solid yellowgreen";
-      a.style.boxShadow ="0 0 10px red";
-      a.style.scale= "1.1"
-      setTimeout( function(){
-        audio.play()
-        alert("GAY!! 😂😂😂😂")
-      },500)
-    })
-    </script>
+    a.addEventListener("click", function () {
+      a.style.scale = "2";
+      a.style.zIndex = "10";
+      a.style.border = "2px solid yellowgreen";
+      a.style.boxShadow = "0 0 10px red";
+      a.style.scale = "1.1";
+      setTimeout(function () {
+        audio.play();
+        const con = confirm("GAY!! 😂😂😂😂");
+        if (con == true) {
+          audio.pause();
+        } else if (con == false) {
+          h3.innerHTML = `Aku Gay dan Aku BANGGA, <br/>ttd ${nama.value}📝`;
+        }
+      }, 500);
+    });
+  </script>
 </html>
