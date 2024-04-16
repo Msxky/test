@@ -53,8 +53,8 @@
     const audio = new Audio ("/WAITWAITWAIT WHAT DA HELLLLL WAAZZZAAAA (quest ah dog sound effect).mp3")
     b.addEventListener("mouseover", moveHover);
     function moveHover() {
-    const n = Math.floor(Math.random() * 500) + 1;
-    const m = Math.floor(Math.random() * 500) + 1;
+    const n = Math.floor(Math.random() * 250) + 1;
+    const m = Math.floor(Math.random() * 400) + 1;
 
     b.style.left = n + "px";
     b.style.top = m + "px";
@@ -65,16 +65,6 @@
       b.textContent = "No"
       a.style.scale="2"
       a.style.zIndex = "10"
-      setTimeout( function(){
-        audio.play()
-        alert("GAY!! 😂😂😂😂")
-      },500)
-    })
-    
-    b.addEventListener("click", function(){
-      a.textContent = "No"
-      b.textContent = "Yes"
-      b.style.scale="2"
       setTimeout( function(){
         audio.play()
         alert("GAY!! 😂😂😂😂")
